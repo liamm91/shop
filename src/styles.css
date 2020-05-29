@@ -3,12 +3,19 @@
   font-size: 16px;
   font-family: "Open Sans";
   color: black;
-  background-color: white;
+  --page-bg: white;
+  --link-visited: white;
+  --link-hover: #008f00;
+  --link-color: white;
 }
 
 * {
   padding: 0;
   margin: 0;
+}
+
+body{
+  background: var(--page-bg);
 }
 
 app-root{
