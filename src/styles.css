@@ -2,25 +2,17 @@
 :root {
   font-size: 16px;
   font-family: "Open Sans";
-  padding: 0rem;
-  margin: 0rem;
-}
-
-body{
   color: black;
   background-color: white;
 }
 
-.header-container{
-  height: 7rem;
-  width: 100vw;
-  background-color: black;
-  color: white;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.navbar-container{
-  height: 5rem;
+app-root{
   width: 100vw;
-  background: #2f4f4f;
-  color: white;
+  height: auto;
 }
+
