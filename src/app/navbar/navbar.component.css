@@ -1,16 +1,12 @@
-:root{
-  --bottom-border-height: 0.3rem;
-}
 
 .navbar{
   height: 100%;
+  --bottom-border-height: 0.3rem;
 }
 
 .navbar-container{
   height: 2.5rem;
   width: 100vw;
-  background: #1f1f1f;
-  color: white;
 }
 
 .navbar-nav {
@@ -18,18 +14,20 @@
   flex-direction: row;
   list-style-type: none;
   height: 100%;
+  background: white;
 }
 
 .nav-item{
+  background: #1f1f1f;
   width: 25%;
   display: flex;
   justify-content: center;
-  border-right: white 0.1rem solid;
+  margin-right: 0.1rem;
   border-bottom: #1f1f1f var(--bottom-border-height) solid;
 }
 
 .nav-item:last-child{
-  border-right: none;
+  margin-right: 0rem;
 }
 
 .nav-link{
