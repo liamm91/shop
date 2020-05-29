@@ -1,6 +1,27 @@
 .header-container{
-  height: 4rem;
-  width: 100vw;
-  background-color: black;
+  height: 7rem;
+  width: 100%;
+  background-image: url("../../assets/header_bg.jpg");
+  background-color: antiquewhite;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+
+.header{
+  align-self: center;
+  background: black;
+}
+
+.header h1{
   color: white;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 0 3rem 0 3rem; /* top right bottom left */
+}
+
+.header h1 span {
+  font-weight: bold;
 }

@@ -1,15 +1,18 @@
 
-.navbar{
-  height: 100%;
+.navbar-container{
+  width: calc(100%);
+  height: 2.5rem;
+  border-top: 0.5rem solid var(--nav-bg);
+  border-bottom: 0.5rem solid var(--nav-bg);
   --bottom-border-height: 0.3rem;
-  --nav-bg: #1f1f1f;
   --li-spacing: 0.1rem;
   --transition-time: 100ms;
+  --button-width: calc(100% / var(--number-of-buttons));
+  --number-of-buttons: 4;
 }
 
-.navbar-container{
-  height: 2.5rem;
-  width: 100vw;
+.navbar{
+  height: 100%;
 }
 
 .navbar-nav {
@@ -22,11 +25,11 @@
 
 .nav-item{
   background: var(--nav-bg);
-  width: 25%;
+  width: var(--button-width);
   display: flex;
   justify-content: center;
   margin-right: var(--li-spacing);
-  padding-bottom: var(--bottom-border-height);
+  padding: var(--bottom-border-height) 0 var(--bottom-border-height) 0;
   border-bottom: var(--bottom-border-height) solid var(--nav-bg);
 }
 
