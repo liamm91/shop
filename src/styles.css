@@ -4,22 +4,58 @@
   font-family: "Open Sans";
   color: black;
   --page-bg: white;
+  --nav-bg: #1f1f1f;
   --link-visited: white;
   --link-hover: #008f00;
   --link-color: white;
 }
 
-* {
+* , *:before, *:after{
   padding: 0;
   margin: 0;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  -ms-box-sizing:border-box;
 }
 
 body{
   background: var(--page-bg);
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 app-root{
-  width: 100vw;
+  width: 100%;
   height: auto;
 }
 
+/* temporary css */
+main {
+  width: calc(100% - 0.2rem);
+  margin: 0.1rem;
+  padding: 0.5rem;
+}
+
+main p {
+  background: #555;
+  color: antiquewhite;
+  margin-bottom: 1.5rem;
+  padding: 0.2rem;
+}
+
+main p:nth-of-type(1){
+  background: #343434;
+}
+
+html::-webkit-scrollbar{
+  width: 0.25rem;
+}
+
+html::-webkit-scrollbar-track{
+  background: #343434;
+}
+
+html::-webkit-scrollbar-thumb{
+  color: white;
+}
