@@ -4,7 +4,8 @@
   font-family: "Open Sans";
   color: black;
   --page-bg: white;
-  --nav-bg: #1f1f1f;
+  --bg-color: #1f1f1f;
+  --bg-color-hover: #3f3f3f;
   --link-visited: white;
   --link-hover: #008f00;
   --link-color: white;
