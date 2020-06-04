@@ -10,18 +10,37 @@
   justify-content: center;
 }
 
-.header{
+.header {
   align-self: center;
-  background: black;
+  background: var(--bg-color);
 }
 
-.header h1{
+.header-link h1{
   color: white;
   font-size: 3rem;
   font-weight: 300;
   padding: 0 3rem 0 3rem; /* top right bottom left */
 }
 
-.header h1 span {
+.header-link h1 span {
   font-weight: bold;
+}
+
+.header-link{
+  text-decoration: none;
+  border: none;
+}
+
+.header-link:active{
+  text-decoration: none;
+  border: none;
+}
+
+.header-link:hover{
+  cursor: pointer;
+}
+
+.header-link::after{
+  text-decoration: none;
+  border: none;
 }
