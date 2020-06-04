@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageheadComponent } from './pagehead/pagehead.component';
 
 const routes: Routes = [
-  { path: '', component: PageheadComponent }
+  //{path: '', component: }
 ];
 
 @NgModule({
