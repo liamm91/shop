@@ -2,13 +2,12 @@
 .navbar-container{
   width: calc(100%);
   height: 2.5rem;
-  border-top: 0.5rem solid var(--nav-bg);
-  border-bottom: 0.5rem solid var(--nav-bg);
-  --bottom-border-height: 0.3rem;
-  --li-spacing: 0.1rem;
+  border: 0.5rem solid var(--bg-color);
+  --padding-height: 0.3rem;
   --transition-time: 100ms;
   --button-width: calc(100% / var(--number-of-buttons));
-  --number-of-buttons: 4;
+  --number-of-buttons: 7;
+  --button-spacing: 1.7rem;
 }
 
 .navbar{
@@ -20,17 +19,17 @@
   flex-direction: row;
   list-style-type: none;
   height: 100%;
-  background: white;
+  background: var(--bg-color);
 }
 
 .nav-item{
-  background: var(--nav-bg);
-  width: var(--button-width);
+  background: var(--bg-color);
+  width: auto;
   display: flex;
   justify-content: center;
-  margin-right: var(--li-spacing);
-  padding: var(--bottom-border-height) 0 var(--bottom-border-height) 0;
-  border-bottom: var(--bottom-border-height) solid var(--nav-bg);
+  margin: 0 0.3rem 0 0.3rem;
+  padding: var(--padding-height) var(--button-spacing) var(--padding-height) var(--button-spacing);
+  /* border-bottom: var(--padding-height) solid var(--bg-color); */
 }
 
 .nav-item:last-child{
@@ -43,25 +42,15 @@
   text-decoration: none;
 }
 
+.nav-link::after{
+  border: none;
+  text-decoration: none;
+}
+
 .nav-item:hover{
-  /* border-bottom: #005f00 var(--bottom-border-height) solid; */
-  border-bottom: var(--bottom-border-height) solid;
-  border-image: linear-gradient(#1f1f1f, #005f00) 49%;
-  transition: border var(--transition-time) linear;
+  background: var(--bg-color-hover);
 }
 .nav-item:hover .nav-link{
-  color: var(--link-hover);
-  transition: color var(--transition-time) linear;
-}
-
-/* active link is just a copy of nav-item:hover */
-.active-link {
-  border-bottom: var(--bottom-border-height) solid;
-  border-image: linear-gradient(#1f1f1f, #005f00) 49%;
-  transition: border var(--transition-time) linear;
-}
-
-.active-link .nav-link {
   color: var(--link-hover);
   transition: color var(--transition-time) linear;
 }
