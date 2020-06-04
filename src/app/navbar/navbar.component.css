@@ -53,3 +53,15 @@
   color: var(--link-hover);
   transition: color var(--transition-time) linear;
 }
+
+/* active link is just a copy of nav-item:hover */
+.active-link {
+  border-bottom: var(--bottom-border-height) solid;
+  border-image: linear-gradient(#1f1f1f, #005f00) 49%;
+  transition: border var(--transition-time) linear;
+}
+
+.active-link .nav-link {
+  color: var(--link-hover);
+  transition: color var(--transition-time) linear;
+}
