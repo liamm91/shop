@@ -12,7 +12,7 @@ import { PageheadComponent } from './pagehead/pagehead.component';
     AppComponent,
     NavbarComponent,
     HeaderComponent,
-    PageheadComponent
+    PageheadComponent,
   ],
   imports: [
     BrowserModule,
