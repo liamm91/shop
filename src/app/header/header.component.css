@@ -8,6 +8,9 @@
   background-position: center;
   display: flex;
   justify-content: center;
+
+  --header-topbottom-padding: 0.5rem;
+  --header-sides-padding: 3rem;
 }
 
 .header {
@@ -19,7 +22,7 @@
   color: white;
   font-size: 3rem;
   font-weight: 300;
-  padding: 0 3rem 0 3rem; /* top right bottom left */
+  padding: var(--header-topbottom-padding) var(--header-sides-padding) var(--header-topbottom-padding) var(--header-sides-padding); /* top right bottom left */
 }
 
 .header-link h1 span {
