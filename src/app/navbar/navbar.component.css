@@ -1,4 +1,4 @@
-
+/* normal css */
 .navbar-container{
   width: calc(100%);
   height: 2.5rem;
@@ -23,34 +23,33 @@
 }
 
 .nav-item{
-  background: var(--bg-color);
-  width: auto;
   display: flex;
   justify-content: center;
-  margin: 0 0.3rem 0 0.3rem;
-  padding: var(--padding-height) var(--button-spacing) var(--padding-height) var(--button-spacing);
-  /* border-bottom: var(--padding-height) solid var(--bg-color); */
-}
-
-.nav-item:last-child{
-  margin-right: 0rem;
 }
 
 .nav-link{
+  background: var(--bg-color);
+  width: auto;
+  margin: 0 0.3rem 0 0.3rem;
+  padding: var(--padding-height) var(--button-spacing) var(--padding-height) var(--button-spacing);
   align-self: center;
-  color: var(--link-color);
   text-decoration: none;
-}
-
-.nav-link::after{
   border: none;
-  text-decoration: none;
 }
 
-.nav-item:hover{
+.link-text{
+  color: var(--link-color);
+}
+
+/* pseudo classes */
+.nav-link:last-child{
+  margin-right: 0rem;
+}
+
+.nav-link:hover{
   background: var(--bg-color-hover);
 }
-.nav-item:hover .nav-link{
+
+.nav-link:hover .link-text{
   color: var(--link-hover);
-  transition: color var(--transition-time) linear;
 }
