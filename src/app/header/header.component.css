@@ -18,20 +18,17 @@
   background: var(--bg-color);
 }
 
-.header-link h1{
-  color: white;
-  font-size: 3rem;
-  font-weight: 300;
-  padding: var(--header-topbottom-padding) var(--header-sides-padding) var(--header-topbottom-padding) var(--header-sides-padding); /* top right bottom left */
-}
-
-.header-link h1 span {
-  font-weight: bold;
-}
-
 .header-link{
   text-decoration: none;
   border: none;
+}
+
+.header-link h1{
+  color: white;
+  font-size: 3rem;
+  padding: var(--header-topbottom-padding) var(--header-sides-padding) var(--header-topbottom-padding) var(--header-sides-padding); /* top right bottom left */
+  font-weight: 600;
+  transition: color 0.1s ease;
 }
 
 .header-link:active{
@@ -41,6 +38,10 @@
 
 .header-link:hover{
   cursor: pointer;
+}
+
+.header-link:hover h1{
+  color: var(--link-hover);
 }
 
 .header-link::after{
