@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
     "@types/jest": "^25.2.3",
+    "bson": "^4.0.4",
     "mongodb": "^3.5.8",
     "path": "^0.12.7",
     "rxjs": "~6.5.4",
