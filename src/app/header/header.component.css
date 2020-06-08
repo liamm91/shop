@@ -1,7 +1,7 @@
 .header-container{
   height: 7rem;
   width: 100%;
-  background-image: url("../../assets/header_bg.jpg");
+  background-image: url("../../assets/img/header_bg.jpg");
   background-color: antiquewhite;
   background-repeat: no-repeat;
   background-size: cover;
