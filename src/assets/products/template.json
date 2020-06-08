@@ -2,6 +2,7 @@
     "sys":{
         "name":"string",
         "price":"float",
+        "images":["array of paths"],
         "product-id":"number",
         "stock":"number",
         "company-name":"string"
@@ -15,11 +16,19 @@
         "brief-description":"string"
     },
     "promotional":{
-        "rating":[{
+        "rating":{
+            "stars":"float", 
+            "reviews":"number"
+        },
+        "customer-reviews":[{
             "stars":"number",
             "user":"string",
             "feedback":"string"
-        }]
+        }],
+        "discount":{
+            "on-sale":"boolean",
+            "amount":"float"
+        }
     },
-    "other":{}
+    "etc":{}
 }
