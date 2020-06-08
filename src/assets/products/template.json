@@ -1,0 +1,25 @@
+{
+    "sys":{
+        "name":"string",
+        "price":"float",
+        "product-id":"number",
+        "stock":"number",
+        "company-name":"string"
+    },
+    "details":{
+        "description":"string",
+        "materials":"string",
+        "dimensions":"string",
+        "features":"string",
+        "shipping-options":"string",
+        "brief-description":"string"
+    },
+    "promotional":{
+        "rating":[{
+            "stars":"number",
+            "user":"string",
+            "feedback":"string"
+        }]
+    },
+    "other":{}
+}
