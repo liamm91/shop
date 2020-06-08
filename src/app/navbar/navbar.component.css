@@ -4,7 +4,7 @@
   height: 2.5rem;
   border: 0.5rem solid var(--bg-color);
   --padding-height: 0.3rem;
-  --transition-time: 100ms;
+  --transition-time: 0.1s;
   --button-width: calc(100% / var(--number-of-buttons));
   --number-of-buttons: 7;
   --button-spacing: 1.7rem;
@@ -28,10 +28,13 @@
 }
 
 .nav-link{
-  background: var(--bg-color);
+  background-color: var(--bg-color);
+  transition: background-color var(--transition-time) ease;
+  
   width: auto;
   margin: 0 0.3rem 0 0.3rem;
   padding: var(--padding-height) var(--button-spacing) var(--padding-height) var(--button-spacing);
+  
   align-self: center;
   text-decoration: none;
   border: none;
@@ -39,6 +42,7 @@
 
 .link-text{
   color: var(--link-color);
+  transition: color var(--transition-time) ease;
 }
 
 /* pseudo classes */
@@ -47,7 +51,8 @@
 }
 
 .nav-link:hover{
-  background: var(--bg-color-hover);
+  background-color: var(--bg-color-hover);
+  cursor: pointer;
 }
 
 .nav-link:hover .link-text{
