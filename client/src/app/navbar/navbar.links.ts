@@ -9,6 +9,7 @@ import { OfficeComponent } from '../office/office.component';
 import { KitchenComponent } from '../kitchen/kitchen.component';
 import { DecorativeComponent } from '../decorative/decorative.component';
 
+// these are the boxes on the navbar
 export const LINKS: Navlink[] = [
   {component: SaleComponent, routerLink: 'sale', linkText: 'On Sale'},
   {component: NewComponent, routerLink: 'new', linkText: 'New'},

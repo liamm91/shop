@@ -1,0 +1,147 @@
+#!/usr/bin/env node
+// main app script
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('shop:server');
+var http = require('http');
+var mongoose = require('mongoose');
+
+/**
+ * Server consts
+ */
+
+const portnum = 3000
+const uri = "mongodb://server:server@localhost:27017/shop"
+const options = { // options to regulate how mongoose connects to the database
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  autoIndex: false, // Don't build indexes
+  poolSize: 10, // Maintain up to 10 socket connections
+  family: 4 // Use IPv4, skip trying IPv6
+};
+
+/**
+ * Connecting to MongoDB
+ */
+
+mongoose.connect(uri, options).then(
+  () => {console.log(`Connected successfully with user '${uri.split(":")[1].replace("//", "")}' on '${mongoose.connection.host}' and connected to MongoDB: ${mongoose.connection.db.databaseName}`)},
+  err => {console.log("Something went wrong when connecting to MongoDB: " + err.reason)}
+);
+
+/**
+ * Handling the events emmitted by mongoose which detail the status of the DB
+ */
+
+mongoose.connection.on('error',(err) => {
+  if (err) {
+    console.log("Something went wrong: " + err)
+  } else {
+    console.log("Something went wrong")
+  }
+})
+mongoose.connection.on('disconnected',() => {
+  console.log("Disconnected from MongoDB: shop")
+})
+mongoose.connection.on('close',() => {
+  console.log("Program has called to close the MongoDB connection")
+})
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || portnum.toString());
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
+
+
+/**
+ * console.log timestamping code paste
+ */
+
+console.logCopy = console.log.bind(console);
+
+console.log = function(data)
+{
+    var timestamp = '[' + new Date().toLocaleTimeString() + '] ';
+    this.logCopy(timestamp, data);
+};

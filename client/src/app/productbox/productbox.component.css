@@ -1,0 +1,34 @@
+*{
+    --productbox-height: 23rem;
+    text-decoration: none;
+    color: black;
+}
+
+.content-wrapper {
+    margin: 0.4rem;
+    padding: 0.4rem;
+    width: 17rem;
+    height: auto;
+    font-size: 1.5rem;
+    background: #dddddd;
+}
+
+.content-image-wrapper {
+    background: white;
+    height: calc(var(--productbox-height) * 0.75);
+}
+
+.content-desc-wrapper {
+    margin-top: 0.5rem;
+    background: white;
+    height: calc(var(--productbox-height) * 0.25);
+}
+
+.content-desc-name, .content-desc-price {
+    height: 50%;
+}
+
+.content-desc-name p, .content-desc-price p{
+    font: 1rem;
+    text-decoration: none;
+}

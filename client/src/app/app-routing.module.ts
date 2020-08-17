@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LINKS } from './navbar/navbar.links';
 import { HomeComponent } from './home/home.component';
 
+// redirects users to proper website
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent}

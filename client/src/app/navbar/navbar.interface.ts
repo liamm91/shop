@@ -5,3 +5,4 @@ export interface Navlink {
   routerLink: string;
   linkText: string;
 }
+// schema to export navlinks from navbar.links.ts
