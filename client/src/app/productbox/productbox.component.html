@@ -1,17 +1,24 @@
-<p>productbox works!</p>
-
-<div class="content-wrapper">
-    <a href="">
-        <div class="content-image-wrapper">
-            <img class="content-image" src="" alt="">
+<div *ngFor="let item of dbProduct" class="content-flexbox">
+    <ng-template [ngIf]="item" [ngIfElse]="loading">
+        <div class="content-wrapper">
+            <a href="">
+                <div class="content-image-wrapper">
+                    <img class="content-image" [src]="item.sys.img.url" alt="">
+                </div>
+                <div class="content-desc-wrapper">
+                    <div class="content-desc-name">
+                        <p>{{item.sys.name}}</p>
+                    </div>
+                    <div class="content-desc-price">
+                        <p>{{item.sys.price.$numberDecimal}}$</p>
+                    </div>
+                </div>
+            </a>
         </div>
-        <div class="content-desc-wrapper">
-            <div class="content-desc-name">
-                <p>test</p>
-            </div>
-            <div class="content-desc-price">
-                <p>test2</p>
-            </div>
-        </div>
-    </a>
+    </ng-template>
+    
+    <ng-template #loading>
+        <div class="loading">Loading...</div>
+    </ng-template>
 </div>
+<!-- convert to angular component template aug 20th 2020-->

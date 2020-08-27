@@ -8,7 +8,10 @@ const ProductSchema = Schema({
     sys:{
         name: String,
         price: Schema.Types.Decimal128,
-        images: [String],
+        img: {
+            data: Buffer,
+            contentType: String,
+        },
         productId: Number,
         stock: Number,
         companyName: String

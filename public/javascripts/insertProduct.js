@@ -1,11 +1,15 @@
 const Product = require("../../models/product-template")
+const fs = require("fs")
 
 var chair = new Product({
     sys:{
         name: "COURTNEY bentwood chair",
-        price: 126.75,
-        images: ["public/images/courtney_armchair.jpg"],
-        productId: 0,
+        price: 99.99,
+        img: {
+            data: fs.readFileSync("/home/dev/shop/public/images/courtney_armchair.jpg"),
+            contentType: "image/png"
+        },
+        productId: 1,
         stock: 69,
         companyName: "Courtney"
     },

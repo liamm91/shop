@@ -11,7 +11,13 @@ router.get('/product', function(req, res, next) {
         if (err) {
             res.writeHead(500, err)
         } else {
-            res.writeHead(200, {"Content-Type": "application/json"})
+            // have to write headers for CORS
+            res.writeHead(200, {
+                "Content-Type": "application/json", 
+                "Access-Control-Allow-Origin":"*",
+                // "Access-Control-Allow-Headers":"Content-Type",
+                // "Access-Control-Allow-Methods":"GET"
+            })
             res.end(JSON.stringify(products))
         }
     });
@@ -26,7 +32,12 @@ router.get('/all', function(req, res, next) {
         if (err) {
             res.writeHead(500, err)
         } else {
-            res.writeHead(200, {"Content-Type": "application/json"})
+            res.writeHead(200, {
+                "Content-Type": "application/json", 
+                "Access-Control-Allow-Origin":"*",
+                // "Access-Control-Allow-Headers":"Content-Type",
+                // "Access-Control-Allow-Methods":"GET"
+            })
             res.end(JSON.stringify(products))
         }
     });
