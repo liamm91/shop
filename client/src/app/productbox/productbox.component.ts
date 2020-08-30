@@ -29,7 +29,7 @@ export class ProductboxComponent implements OnInit {
       (data: productItem[]) => {
         data.map(item => item.sys.img.url = 'data:image/png;base64,' + this.toBase64(item.sys.img.data.data)); // converting the buffer array to a b64 string which can be made into a URL
         this.dbProduct = data; // assigning processed data into dbProduct
-        console.log(data);
+        //console.log(data);
       }, // success path
       error => this.error = error // error path
     );

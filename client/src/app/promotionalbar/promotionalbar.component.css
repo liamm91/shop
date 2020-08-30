@@ -1,0 +1,53 @@
+.promo-wrapper {
+    width: 100%;
+    height: 2.5rem;
+    font-size: 0.9rem;
+    font-family: 'Alata', sans-serif;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: var(--bg-color);
+    color: white;
+
+    /* copied from stack overflow */
+    /* https://stackoverflow.com/questions/33444666/how-to-center-align-one-flex-item-and-right-align-another-using-flexbox */
+    position: relative;
+}
+
+.promo-text {
+    padding: 0.4rem;
+    width: auto;
+    align-self: center;
+
+    /* copied from stack overflow */
+    flex: 0 1 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.promo-button {
+    /* copied from stack overflow */
+    flex: 0 1 auto;
+    margin-left: auto;
+    margin-right: 10rem;
+}
+
+.promo-button button {
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    background: transparent;
+
+    height: 1.6rem;
+    width: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promo-button button img {
+    height: 1.5rem;
+    width: 1.5rem;
+}

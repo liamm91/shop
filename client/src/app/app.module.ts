@@ -15,6 +15,7 @@ import { KitchenComponent } from './kitchen/kitchen.component';
 import { DecorativeComponent } from './decorative/decorative.component';
 import { HomeComponent } from './home/home.component';
 import { ProductboxComponent } from './productbox/productbox.component';
+import { PromotionalbarComponent } from './promotionalbar/promotionalbar.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ProductboxComponent } from './productbox/productbox.component';
     DecorativeComponent,
     HomeComponent,
     ProductboxComponent,
+    PromotionalbarComponent,
   ],
   imports: [
     BrowserModule,
