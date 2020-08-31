@@ -7,13 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@types/mongoose": "^5.7.23",
+    "@types/mongoose": "^5.7.36",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "mongoose": "^5.9.18",
+    "mongoose": "^5.10.2",
     "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11"
+    "pug": "^3.0.0"
   }
 }
