@@ -1,0 +1,26 @@
+.wrapper {
+    width: 100vw;
+    min-height: 2.5rem;
+    line-height: 2.5rem;
+    padding: 0 1rem 0 1rem;
+    background-color: var(--bg-color);
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+a:hover {
+    cursor: pointer;
+    color: var(--link-hover);
+    transition: color 0.1s ease;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}

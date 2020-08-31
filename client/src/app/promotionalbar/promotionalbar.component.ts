@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PromotionalbarComponent implements OnInit {
 
-  destroyed: boolean;
+  destroyed: boolean; // handles whether the component is seen or not
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  destroy(): void {
+  destroy(): void { // updates visibility of component when the user clicks on the button
     this.destroyed = true;
   }
 
