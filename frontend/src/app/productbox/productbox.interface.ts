@@ -1,3 +1,5 @@
+import { SafeUrl } from '@angular/platform-browser';
+
 export interface productItem {
     sys:{
         name: string,
@@ -13,7 +15,7 @@ export interface productItem {
                 data: any,
             },
             contentType: string,
-            url?: string, //optional, used for when post processing of the image url is done
+            url?: SafeUrl, //optional, used for when post processing of the image url is done
         },
         stock: Number,
         companyName: String,
