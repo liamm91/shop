@@ -3,15 +3,22 @@ const fs = require("fs")
 
 var chair = new Product({
     sys:{
-        name: "COURTNEY bentwood chair",
-        price: 99.99,
+        name: "bentwood chair",
+        price: 169.00,
         img: {
             data: fs.readFileSync("../images/courtney_armchair.jpg"),
             contentType: "image/png"
         },
-        productId: 1,
         stock: 69,
-        companyName: "Courtney"
+        companyName: "COURTNEY",
+        catagory: [
+            "office",
+            "decorative",
+            "on-sale"
+        ],
+        tags: [
+            "original"
+        ]
     },
     details:{
         description: "Eccentrically designed, the Courtney bentwood chair stands out. The modern frame and legs made of elm wood will gracefully complement your decor, while seating your guest with comfort and style.",
@@ -31,7 +38,7 @@ var chair = new Product({
     },
     promotional:{
         rating:{
-            stars: 0.0,
+            avgStars: 0.0,
             numberOfReviews: 0,
         }
     },
