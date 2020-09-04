@@ -9,6 +9,7 @@ var app = require('../app');
 var debug = require('debug')('shop:server');
 var http = require('http');
 var mongoose = require('mongoose');
+var fs = require('fs');
 const chair = require('../public/javascripts/insertProduct');
 
 /**
@@ -16,8 +17,8 @@ const chair = require('../public/javascripts/insertProduct');
  */
 
 const portnum = 3000
-// const uri = "mongodb://server:server@localhost:27017/shop"
-const uri = "mongodb://insertUser:insertUser123@localhost:27017/shop"
+const uri = "mongodb://server:server@localhost:27017/shop"
+// const uri = "mongodb://insertUser:insertUser123@localhost:27017/shop"
 const regex = "\/\/(.*?):" // selects all data between // and :
 const options = { // options to regulate how mongoose connects to the database
   useNewUrlParser: true,
@@ -58,8 +59,8 @@ mongoose.connection.on('close',() => {
 /**
  * uncomment to insert product into the MongoDB
  */
-chair.random();
-chair.save();
+// chair.random();
+// chair.save();
 
 /**
  * Get port from environment and store in Express.
@@ -72,7 +73,10 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = http.createServer({
+  // key: fs.readFileSync(__dirname + '/../keys/key.pem'),
+  // cert: fs.readFileSync(__dirname + '/../keys/cert.pem')
+}, app);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -154,3 +158,14 @@ console.log = function(data)
     var timestamp = '[' + new Date().toLocaleTimeString() + '] ';
     this.logCopy(timestamp, data);
 };
+
+/**
+ * printing args if verbose is true, defined in www
+ */
+verbose.print = (args) => {
+  if (verbose) {
+    console.log(args)
+  }
+}
+
+module.exports = verbose = true;
