@@ -12,9 +12,10 @@ const ProductSchema = Schema({
             data: Buffer,
             contentType: String,
         },
-        productId: Number,
         stock: Number,
-        companyName: String
+        companyName: String,
+        catagory: [String],
+        tags: [String],
     },
     details:{
         description: String,
@@ -26,7 +27,7 @@ const ProductSchema = Schema({
     },
     promotional:{
         rating:{
-            stars: Schema.Types.Decimal128,
+            avgStars: Schema.Types.Decimal128,
             numberOfReviews: Number,
         },
         customerReviews:[{
