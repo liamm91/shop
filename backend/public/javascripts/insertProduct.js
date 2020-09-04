@@ -6,7 +6,7 @@ var chair = new Product({
         name: "COURTNEY bentwood chair",
         price: 99.99,
         img: {
-            data: fs.readFileSync("/home/dev/shop/public/images/courtney_armchair.jpg"),
+            data: fs.readFileSync("../images/courtney_armchair.jpg"),
             contentType: "image/png"
         },
         productId: 1,
