@@ -16,8 +16,8 @@ const chair = require('../public/javascripts/insertProduct');
  */
 
 const portnum = 3000
-const uri = "mongodb://server:server@localhost:27017/shop"
-// const uri = "mongodb://insertUser:insertUser123@localhost:27017/shop"
+// const uri = "mongodb://server:server@localhost:27017/shop"
+const uri = "mongodb://insertUser:insertUser123@localhost:27017/shop"
 const regex = "\/\/(.*?):" // selects all data between // and :
 const options = { // options to regulate how mongoose connects to the database
   useNewUrlParser: true,
@@ -58,7 +58,8 @@ mongoose.connection.on('close',() => {
 /**
  * uncomment to insert product into the MongoDB
  */
-// chair.save();
+chair.random();
+chair.save();
 
 /**
  * Get port from environment and store in Express.
