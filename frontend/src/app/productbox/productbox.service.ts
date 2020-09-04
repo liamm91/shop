@@ -11,16 +11,16 @@ import { productItem } from './productbox.interface';
 export class ProductboxService {
   private options: {
     observe: 'body',
-    responseType: 'json'
+    responseType: 'json',
   }
 
   constructor(private http: HttpClient) { }
 
   getProduct(): Observable<productItem[]> {
     // sending a GET request to our localhost backend and receiving a typed response
-    return this.http.get<productItem[]>("http://localhost:3000/get/all", this.options)
+    return this.http.get<productItem[]>(`https://localhost:3000/get/query/office`, this.options)
       .pipe(
-        retry(3), // retry a failed request up to 3 times
+        // retry(3), // retry a failed request up to 3 times
         catchError(this.handleError) // then handle the error
       );
   }
