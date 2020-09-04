@@ -9,7 +9,7 @@ var debug = require('debug')('shop:server');
 var http = require('http');
 var mongoose = require('mongoose');
 var fs = require('fs'); // keep this
-const chair = require('../public/javascripts/insertProduct');
+var chair = require('../public/javascripts/insertProduct');
 
 /**
  * Server consts
@@ -147,14 +147,3 @@ console.log = function(data)
     var timestamp = '[' + new Date().toLocaleTimeString() + '] ';
     this.logCopy(timestamp, data);
 };
-
-/**
- * printing args if verbose is true, defined in www
- */
-verbose.print = (args) => {
-  if (verbose) {
-    console.log(args)
-  }
-}
-
-module.exports = verbose = true;

@@ -1,6 +1,10 @@
+// imports
 var express = require('express');
 var router = express.Router();
-const Product = require('../models/product-template')
+var verbose = require("../bin/www");
+const Product = require('../models/product-template');
+
+// user defined varibles
 const legalSrch = [
     "office",
     "decorative",
@@ -22,20 +26,21 @@ router.get('/query/:srch', function(req, res, next) {
 
     // testing to make sure its all letters
     query.match(regex) ? {} : (res.sendStatus(404), res.end());
-    verbose.print(query.match(regex));
+    console.log(query.match(regex));
 
     // testing the query against the list of legal queries
     if (legalSrch.includes(query.match(regex)[0])) { // GOOD
         console.log(`responded with all product of catagory ${query}`);
         
-        res.writeHead(200, {
-            "Content-Type": "application/json", 
-            "Access-Control-Allow-Origin":"*",
-            "Access-Control-Allow-Headers":"Content-Type",
-            "Access-Control-Allow-Methods":"GET"
-        })
+        res.sendStatus(200);
+        // res.writeHead(200, {
+        //     "Content-Type": "application/json", 
+        //     "Access-Control-Allow-Origin":"*",
+        //     "Access-Control-Allow-Headers":"Content-Type",
+        //     "Access-Control-Allow-Methods":"GET"
+        // })
     } else {
-        verbose.print("bad srch, sending 404")
+        console.log("bad srch, sending 404")
         res.sendStatus(404);
         next()
     }
