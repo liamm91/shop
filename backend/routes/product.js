@@ -10,7 +10,7 @@ const legalSrch = [
     "dining-room",
     "kitchen",
 ];
-const regex = /[[a-z]+|(?=[a-z]*[-])([a-z-]+)]/gm
+const regex = /(?=[a-z]*[-])([a-z-]+)|[a-z]+/gm
 
 /**
  * Sending a query to the database to retrieve objects sorted
