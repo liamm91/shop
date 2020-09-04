@@ -46,7 +46,7 @@ const chair = new Product({
 
 // making a function to generate a chair object
 chair.random = () => {
-    chair.set("sys.price", Math.floor(Math.random() * (200 - 100 + 1) + 100) );
+    chair.set("sys.price", Math.floor(Math.random() * (200 - 100 + 1) + 100) - 0.01);
     chair.set("sys.catagory", catagories.get());
 };
 
@@ -65,9 +65,11 @@ const catagories = [
  * sorts all elements in the array randomly then returns a slice of the array
  */
 catagories.get = () => {
-    return catagories.sort(function (){
-        return 0.5 - Math.random();
-    }).slice(catagories, 4);
+    return catagories.sort( 
+        function (){ 
+            return 0.5 - Math.random(); 
+        } 
+    ).slice(catagories, 4);
 }
 
 // disable to insert this object upon run
