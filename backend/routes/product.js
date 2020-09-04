@@ -25,42 +25,31 @@ router.get('/query/:srch', function(req, res, next) {
     var query = req.params.srch;
 
     // testing to make sure its all letters
-    query.match(regex) ? {} : (res.sendStatus(404), res.end());
-    console.log(query.match(regex));
+    query.match(regex)[0] ? {} : (res.sendStatus(403), res.end());
+    console.log("received: " + query.match(regex));
 
     // testing the query against the list of legal queries
     if (legalSrch.includes(query.match(regex)[0])) { // GOOD
         console.log(`responded with all product of catagory ${query}`);
-        
-        res.sendStatus(200);
-        // res.writeHead(200, {
-        //     "Content-Type": "application/json", 
-        //     "Access-Control-Allow-Origin":"*",
-        //     "Access-Control-Allow-Headers":"Content-Type",
-        //     "Access-Control-Allow-Methods":"GET"
-        // })
+        Product.find({"sys.catagory": query }, (err, products) => {
+            if (err) {
+                res.writeHead(500, err)
+            } else {
+                // have to write headers for CORS
+                res.writeHead(200, {
+                    "Content-Type": "application/json", 
+                    "Access-Control-Allow-Origin":"*",
+                    "Access-Control-Allow-Headers":"Content-Type",
+                    "Access-Control-Allow-Methods":"GET"
+                })
+                res.end(JSON.stringify(products))
+            }
+        });
     } else {
         console.log("bad srch, sending 404")
         res.sendStatus(404);
         next()
     }
-
-    // console.log(`responded with all product of catagory ${cata}`);
-    // Product.find((err, products) => {
-    //     if (err) {
-    //         res.writeHead(500, err)
-    //         console.log(err)
-    //     } else {
-    //         // have to write headers for CORS
-    //         res.writeHead(200, {
-    //             "Content-Type": "application/json", 
-    //             "Access-Control-Allow-Origin":"*",
-    //             "Access-Control-Allow-Headers":"Content-Type",
-    //             "Access-Control-Allow-Methods":"GET"
-    //         })
-    //         res.end(JSON.stringify(products))
-    //     }
-    // });
 });
 
 /**
