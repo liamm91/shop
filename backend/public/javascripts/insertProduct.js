@@ -46,8 +46,8 @@ const chair = new Product({
 
 // making a function to generate a chair object
 chair.random = () => {
-    this.set("sys.price", Math.floor(Math.random() * (200 - 100 + 1) + 100) );
-    this.set("sys.catagory", catagories.get());
+    chair.set("sys.price", Math.floor(Math.random() * (200 - 100 + 1) + 100) );
+    chair.set("sys.catagory", catagories.get());
 };
 
 const catagories = [
