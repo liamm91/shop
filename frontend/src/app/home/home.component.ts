@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public catagory: string;
+  public catagory: string; // property binding
 
   constructor() { }
 
   ngOnInit(): void {
-    this.catagory = "kitchen";
+    this.catagory = "kitchen"; // property binding
   }
 
 }
