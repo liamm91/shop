@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { productItem } from './productbox.interface';
 import { ProductboxService } from './productbox.service';
 
@@ -11,6 +11,7 @@ export class ProductboxComponent implements OnInit {
   // added variables to hold stuff
   error: any;
   dbProduct: productItem[];
+  @Input('catagory') catagory: string; // scanning for 'catagory' property binding when initialized by parent component
 
   constructor(private productService: ProductboxService) { }
 
@@ -23,8 +24,12 @@ export class ProductboxComponent implements OnInit {
  }
 
   ngOnInit(): void {
+    // scrubbing catagory
+    this.catagory ? {} : (this.catagory = "all");
+    this.catagory === "all" ? {} : (this.catagory = "query/" + this.catagory);
+
     // gets json from our express website through productbox.service
-    this.productService.getProduct()
+    this.productService.getProduct(this.catagory)
     .subscribe(
       (data: productItem[]) => {
         data.map(item => item.sys.img.url = 'data:image/png;base64,' + this.toBase64(item.sys.img.data.data)); // converting the buffer array to a b64 string which can be made into a URL
