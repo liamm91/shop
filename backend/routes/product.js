@@ -25,7 +25,7 @@ router.get('/query/:srch', function(req, res, next) {
     var query = req.params.srch;
 
     // testing to make sure its all letters
-    query.match(regex)[0] ? {} : (res.sendStatus(403), res.end());
+    query.match(regex)[0] ? {} : (console.log("bad srch, sending 404"), res.sendStatus(404));
     console.log("received: " + query.match(regex));
 
     // testing the query against the list of legal queries
@@ -45,10 +45,6 @@ router.get('/query/:srch', function(req, res, next) {
                 res.end(JSON.stringify(products))
             }
         });
-    } else {
-        console.log("bad srch, sending 404")
-        res.sendStatus(404);
-        next()
     }
 });
 
