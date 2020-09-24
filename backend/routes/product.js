@@ -13,7 +13,15 @@ const legalSrch = [
     "dining-room",
     "kitchen",
 ];
+// using regex to test for valid queries
 const regex = /(?=[a-z]*[-])([a-z-]+)|[a-z]+/gm
+// made the response headers into a json const
+const respHeaders = {
+    "Content-Type": "application/json", 
+    "Access-Control-Allow-Origin":"*",
+    "Access-Control-Allow-Headers":"Content-Type",
+    "Access-Control-Allow-Methods":"GET"
+}
 
 /**
  * Sending a query to the database to retrieve objects sorted
@@ -34,18 +42,14 @@ router.get('/query/:srch', function(req, res) {
                 // output 
                 console.log(`unexpected error: ${err.reason}`)
 
-                res.writeHead(500, err)
+                res.writeHead(500)
+                res.end(toString(err.reason))
             } else {
                 // output
                 console.log(`responded with all product of catagory ${query}`);
 
                 // have to write headers for CORS
-                res.writeHead(200, {
-                    "Content-Type": "application/json", 
-                    "Access-Control-Allow-Origin":"*",
-                    "Access-Control-Allow-Headers":"Content-Type",
-                    "Access-Control-Allow-Methods":"GET"
-                })
+                res.writeHead(200, respHeaders)
                 res.end(JSON.stringify(products))
             }
         });
@@ -65,18 +69,14 @@ router.get('/id/:srch', function(req, res) {
             // output 
             console.log(`unexpected error: ${err.reason}`)
 
-            res.writeHead(500, err)
+            res.writeHead(500)
+            res.end(toString(err.reason))
         } else {
             // output
             console.log(`responded with product of id ${query}`);
 
             // have to write headers for CORS
-            res.writeHead(200, {
-                "Content-Type": "application/json", 
-                "Access-Control-Allow-Origin":"*",
-                "Access-Control-Allow-Headers":"Content-Type",
-                "Access-Control-Allow-Methods":"GET"
-            })
+            res.writeHead(200, respHeaders)
             res.end(JSON.stringify(products))
         }
     });
@@ -91,18 +91,14 @@ router.get('/all', function(req, res) {
             // output
             console.log(`unexpected error: ${err.reason}`);
 
-            res.writeHead(500, err)
+            res.writeHead(500)
+            res.end(toString(err.reason))
         } else {
             // output
             console.log('responded with all products');
 
             // have to write headers for CORS
-            res.writeHead(200, {
-                "Content-Type": "application/json", 
-                "Access-Control-Allow-Origin":"*",
-                "Access-Control-Allow-Headers":"Content-Type",
-                "Access-Control-Allow-Methods":"GET"
-            })
+            res.writeHead(200, respHeaders)
             res.end(JSON.stringify(products))
         }
     });
