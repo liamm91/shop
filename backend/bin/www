@@ -4,17 +4,16 @@
 /**
  * Module dependencies.
  */
-
 var app = require('../app');
 var debug = require('debug')('shop:server');
 var http = require('http');
 var mongoose = require('mongoose');
-const chair = require('../public/javascripts/insertProduct');
+var fs = require('fs'); // keep this
+var chair = require('../public/javascripts/insertProduct');
 
 /**
  * Server consts
  */
-
 const portnum = 3000
 const uri = "mongodb://server:server@localhost:27017/shop"
 // const uri = "mongodb://insertUser:insertUser123@localhost:27017/shop"
@@ -31,7 +30,6 @@ const options = { // options to regulate how mongoose connects to the database
 /**
  * Connecting to MongoDB
  */
-
 mongoose.connect(uri, options).then(
   () => {console.log(`Connected successfully with user '${uri.match(regex)[1]}' on '${mongoose.connection.host}' and connected to MongoDB: ${mongoose.connection.db.databaseName}`)},
   err => {console.log("Something went wrong when connecting to MongoDB: " + err.reason)}
@@ -40,7 +38,6 @@ mongoose.connect(uri, options).then(
 /**
  * Handling the events emmitted by mongoose which detail the status of the DB
  */
-
 mongoose.connection.on('error',(err) => {
   if (err) {
     console.log("Something went wrong: " + err)
@@ -58,25 +55,26 @@ mongoose.connection.on('close',() => {
 /**
  * uncomment to insert product into the MongoDB
  */
+// chair.random();
 // chair.save();
 
 /**
  * Get port from environment and store in Express.
  */
-
 var port = normalizePort(process.env.PORT || portnum.toString());
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-
-var server = http.createServer(app);
+var server = http.createServer({
+  // key: fs.readFileSync(__dirname + '/../keys/key.pem'),
+  // cert: fs.readFileSync(__dirname + '/../keys/cert.pem')
+}, app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
-
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
@@ -84,7 +82,6 @@ server.on('listening', onListening);
 /**
  * Normalize a port into a number, string, or false.
  */
-
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
@@ -104,7 +101,6 @@ function normalizePort(val) {
 /**
  * Event listener for HTTP server "error" event.
  */
-
 function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
@@ -132,7 +128,6 @@ function onError(error) {
 /**
  * Event listener for HTTP server "listening" event.
  */
-
 function onListening() {
   var addr = server.address();
   var bind = typeof addr === 'string'
@@ -145,7 +140,6 @@ function onListening() {
 /**
  * console.log timestamping code paste
  */
-
 console.logCopy = console.log.bind(console);
 
 console.log = function(data)

@@ -18,6 +18,7 @@ import { ProductboxComponent } from './productbox/productbox.component';
 import { PromotionalbarComponent } from './promotionalbar/promotionalbar.component';
 import { ContactpageComponent } from './contactpage/contactpage.component';
 import { UserbarComponent } from './userbar/userbar.component';
+import { ProductviewpageComponent } from './productviewpage/productviewpage.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { UserbarComponent } from './userbar/userbar.component';
     PromotionalbarComponent,
     ContactpageComponent,
     UserbarComponent,
+    ProductviewpageComponent,
   ],
   imports: [
     BrowserModule,

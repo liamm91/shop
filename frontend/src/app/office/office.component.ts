@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./office.component.css']
 })
 export class OfficeComponent implements OnInit {
+  public catagory: string; // property binding
 
   constructor() { }
 
   ngOnInit(): void {
+    this.catagory = "office"; // property binding
   }
 
 }

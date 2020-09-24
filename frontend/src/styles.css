@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
   font-size: 16px;
-  font-family: "Open Sans";
+  font-family: "Alata", sans-serif;
   color: black;
   --page-bg: white;
   --bg-color: #1f1f1f;
