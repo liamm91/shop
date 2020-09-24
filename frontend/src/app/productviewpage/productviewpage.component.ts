@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ProductviewpageComponent implements OnInit {
   // added variables to hold stuff
-  error: any;
+  error: any = null;
   dbProduct: productItem;
   id: string;
 
