@@ -8,7 +8,8 @@ import { ContactpageComponent } from './contactpage/contactpage.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'}, // takes users to the home page
   {path: 'home', component: HomeComponent}, // loads the home page when users enter
-  {path: 'contact', component: ContactpageComponent} // route to the contact us page
+  {path: 'contact', component: ContactpageComponent}, // route to the contact us page
+  {path: 'product/:id', redirectTo: '/home'}
 ];
 
 // pushing routes to other components to the main router module

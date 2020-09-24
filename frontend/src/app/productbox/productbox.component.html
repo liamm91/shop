@@ -1,7 +1,7 @@
 <div *ngFor="let item of dbProduct" class="content-flexbox">
     <ng-template [ngIf]="item" [ngIfElse]="loading">
         <div class="content-wrapper">
-            <a href="">
+            <a href="/product/{{item._id}}">
                 <div class="content-image-wrapper">
                     <img class="content-image" [src]="item.sys.img.url" alt="">
                 </div>

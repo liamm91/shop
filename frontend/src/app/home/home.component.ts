@@ -11,7 +11,11 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.catagory = "kitchen"; // property binding
+    /**
+     * having new as the catagory is temporary until I figure
+     * out what exactly to put here
+     */
+    this.catagory = "new"; // property binding
   }
 
 }

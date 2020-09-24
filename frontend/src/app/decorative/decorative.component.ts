@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./decorative.component.css']
 })
 export class DecorativeComponent implements OnInit {
+  public catagory: string; // property binding
 
   constructor() { }
 
   ngOnInit(): void {
+    this.catagory = "decorative"; // property binding
   }
 
 }

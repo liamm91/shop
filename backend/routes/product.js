@@ -1,7 +1,6 @@
 // imports
 var express = require('express');
 var router = express.Router();
-var verbose = require("../bin/www");
 const Product = require('../models/product-template');
 
 // user defined varibles
