@@ -1,4 +1,5 @@
-<div class="content-container">
+<section class="content-container">
+    <!-- render this if there is a response, and it is a dbProduct -->
     <ng-template [ngIf]="dbProduct" [ngIfElse]="loading">
         <div class="image greybg">
             <img [src]="dbProduct.sys.img.url" alt="">
@@ -15,9 +16,21 @@
             </div>
         </div>
     </ng-template>
+
+    <!-- render this when waiting for a response, then evaluate the response -->
     <ng-template #loading>
+        <ng-template *ngIf="error then err">
+            <div class="loading">
+                <p>An error has occurred.</p>
+            </div>
+        </ng-template>
+    </ng-template>
+
+    <!-- render this if there is a server error -->
+    <ng-template #err>
         <div class="loading">
-            <p>Loading...</p>
+            <p>Error</p>
         </div>
     </ng-template>
-</div>
+
+</section>
