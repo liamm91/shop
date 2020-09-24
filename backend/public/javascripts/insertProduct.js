@@ -1,17 +1,24 @@
 const Product = require("../../models/product-template")
-const fs = require("fs")
+const fs = require("fs");
 
-var chair = new Product({
+const chair = new Product({
     sys:{
-        name: "COURTNEY bentwood chair",
-        price: 99.99,
+        name: "bentwood chair",
+        price: 169.00,
         img: {
-            data: fs.readFileSync("../images/courtney_armchair.jpg"),
+            data: fs.readFileSync(__dirname + "/../images/courtney_armchair.jpg"),
             contentType: "image/png"
         },
-        productId: 1,
         stock: 69,
-        companyName: "Courtney"
+        companyName: "COURTNEY",
+        catagory: [
+            "office",
+            "decorative",
+            "on-sale"
+        ],
+        tags: [
+            "modified"
+        ]
     },
     details:{
         description: "Eccentrically designed, the Courtney bentwood chair stands out. The modern frame and legs made of elm wood will gracefully complement your decor, while seating your guest with comfort and style.",
@@ -25,17 +32,45 @@ var chair = new Product({
             "Width: 78 cm (30.5\")",
             "Height: 81 cm (32\")"
         ],
-        features: "Chair",
+        features: "",
         shippingOptions: "Right Now!",
         briefDescription: "Chair"
     },
     promotional:{
         rating:{
-            stars: 0.0,
+            avgStars: 0.0,
             numberOfReviews: 0,
         }
     },
 })
 
+// making a function to generate a chair object
+chair.random = () => {
+    chair.set("sys.price", Math.floor(Math.random() * (200 - 100 + 1) + 100) - 0.01);
+    chair.set("sys.catagory", catagories.get());
+};
+
+const catagories = [
+    "office",
+    "decorative",
+    "on-sale",
+    "new",
+    "living-room",
+    "dining-room",
+    "kitchen",
+];
+
+/**
+ * taken from stack overflow
+ * sorts all elements in the array randomly then returns a slice of the array
+ */
+catagories.get = () => {
+    return catagories.sort( 
+        function (){ 
+            return 0.5 - Math.random(); 
+        } 
+    ).slice(catagories, 4);
+}
+
 // disable to insert this object upon run
-// module.exports = chair
+module.exports = chair

@@ -17,9 +17,10 @@ export interface productItem {
             contentType: string,
             url?: SafeUrl, //optional, used for when post processing of the image url is done
         },
-        productId: Number,
         stock: Number,
-        companyName: String
+        companyName: String,
+        catagory: [String],
+        tags: [String]
     },
     details:{
         description: String,

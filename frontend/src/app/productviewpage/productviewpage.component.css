@@ -1,0 +1,109 @@
+*{
+    --innerbox-padding: 1rem;
+    --microbox-padding: 0.4rem;
+}
+
+.content-container{
+    padding: 1.5rem;
+    width: 100vw;
+}
+
+.inline{
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.image{
+    height: 30rem;
+    width: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.image img{
+    width: calc(100% - var(--microbox-padding)*2);
+    height: calc(100% - var(--microbox-padding)*2);
+    border-radius: 0.3rem;
+}
+
+.product{
+    height: calc(20% - var(--microbox-padding));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.details{
+    height: calc(50% - var(--microbox-padding));
+}
+
+.purchase{
+    height: calc(30% - var(--microbox-padding)*2);
+}
+
+.etc{
+    height: 30rem;
+    width: calc(35% - var(--innerbox-padding));
+    float: right;
+}
+
+.greybg{
+    background-color: #dddddd;
+    border-radius: 0.3rem;
+}
+
+.whitebg{
+    background-color: white;
+    border-radius: 0.3rem;
+}
+
+.micropadding{
+    margin: var(--microbox-padding);
+}
+
+.waitingResponse{
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.3rem;
+    border: 0.4rem solid #dddddd;
+    font-size: 3rem;
+    font-family: 'Alata', sans-serif;
+}
+
+.product p{
+    margin-left: 0.3rem;
+    text-decoration: none;
+    margin-bottom: 0.245rem;
+}
+
+.name{
+    font-size: 1.2rem;
+    font-family: 'Alata', sans-serif;
+}
+
+.price{
+    font-size: 1.725rem;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+}
+
+.header-name{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--innerbox-padding);
+}
+
+.header-name p{
+    width: 100%;
+    height: 100%;
+    font-size: 3rem;
+}
