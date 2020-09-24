@@ -1,4 +1,4 @@
-<div *ngFor="let item of dbProduct" class="content-flexbox">
+<section *ngFor="let item of dbProduct" class="content-flexbox">
     <ng-template [ngIf]="item" [ngIfElse]="loading">
         <div class="content-wrapper">
             <a href="/product/{{item._id}}">
@@ -22,5 +22,5 @@
             <p>Loading...</p>
         </div>
     </ng-template>
-</div>
+</section>
 <!-- convert to angular component template aug 20th 2020-->
