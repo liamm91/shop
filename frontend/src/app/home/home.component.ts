@@ -12,10 +12,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     /**
-     * having new as the catagory is temporary until I figure
+     * having 'all' as the catagory is temporary until I figure
      * out what exactly to put here
      */
-    this.catagory = "new"; // property binding
+    this.catagory = "all"; // property binding
   }
 
 }
