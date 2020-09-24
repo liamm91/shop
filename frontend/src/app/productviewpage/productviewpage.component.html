@@ -1,36 +1,47 @@
 <section class="content-container">
     <!-- render this if there is a response, and it is a dbProduct -->
-    <ng-template [ngIf]="dbProduct" [ngIfElse]="loading">
-        <div class="image greybg">
-            <img [src]="dbProduct.sys.img.url" alt="">
+    <ng-template [ngIf]="dbProduct" [ngIfElse]="sentRequest">
+        <div class="header-name greybg">
+            <p class="whitebg micropadding">{{dbProduct.sys.name}}</p>
         </div>
-        <div class="etc greybg">
-            <div class="name whitebg micropadding">
-                <p>{{dbProduct.sys.name}}</p>
+        <div class="inline">
+            <div class="image greybg">
+                <img class="micropadding" [src]="dbProduct.sys.img.url" alt="">
             </div>
-            <div class="details whitebg micropadding">
-                <p></p>
-            </div>
-            <div class="purchase whitebg micropadding">
-                <p></p>
+            <div class="etc greybg">
+                <div class="product whitebg micropadding">
+                    <p class="name">{{dbProduct.sys.name}}</p>
+                    <p class="price">{{dbProduct.sys.price.$numberDecimal}}$</p>
+                </div>
+                <div class="details whitebg micropadding">
+                    <p></p>
+                </div>
+                <div class="purchase whitebg micropadding">
+                    <p></p>
+                </div>
             </div>
         </div>
+    </ng-template>
+
+    <ng-template #sentRequest>
+        <!-- render this when waiting for a response, then evaluate the response -->
+        <ng-template *ngIf="!error then waitingResponse"></ng-template>
+
+        <!-- render this if there is a server error -->
+        <ng-template *ngIf="error then serverError"></ng-template>
     </ng-template>
 
     <!-- render this when waiting for a response, then evaluate the response -->
-    <ng-template #loading>
-        <ng-template *ngIf="error then err">
-            <div class="loading">
-                <p>An error has occurred.</p>
-            </div>
-        </ng-template>
-    </ng-template>
-
-    <!-- render this if there is a server error -->
-    <ng-template #err>
-        <div class="loading">
-            <p>Error</p>
+    <ng-template #waitingResponse>
+        <div class="waitingResponse">
+            <p>Loading</p>
         </div>
     </ng-template>
 
+    <!-- render this if there is a server error -->
+    <ng-template #serverError>
+        <div class="waitingResponse">
+            <p>Internal Server error</p>
+        </div>
+    </ng-template>
 </section>
