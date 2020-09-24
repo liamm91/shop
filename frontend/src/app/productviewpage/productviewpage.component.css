@@ -8,12 +8,27 @@
     padding: 1.5rem;
     /* width: calc(100vw - var(--margins)); */
     width: 100vw;
+    display: inline-flex;
+    flex-direction: row;
 }
 
 .image{
     height: 30rem;
-    width: calc(65% - var(--innerbox-padding));
+    width: 30rem;
     float: left;
+    text-align: center;
+    display: block;
+    margin-right: 1rem;
+}
+
+.image img{
+    width: calc(100% - var(--innerbox-padding));
+    height: calc(30rem - var(--innerbox-padding));
+    top: 50%;
+    position: relative;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 0.3rem;
 }
 
 .name{
@@ -46,4 +61,21 @@
 
 .micropadding{
     margin: var(--microbox-padding);
+}
+
+.loading{
+    width: 100%;
+    height: 30rem;
+    text-align: center;
+    display: block;
+    border-radius: 0.3rem;
+    border: 0.4rem solid #dddddd;
+    font-size: 3rem;
+    font-family: 'Alata', sans-serif;
+}
+
+.loading p{
+    position: relative;
+    top: 50%;         
+    transform: translate(0, -50%)
 }

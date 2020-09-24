@@ -1,16 +1,23 @@
 <div class="content-container">
-    <div class="image greybg">
-        <img src="" alt="">
-    </div>
-    <div class="etc greybg">
-        <div class="name whitebg micropadding">
-            <p></p>
+    <ng-template [ngIf]="dbProduct" [ngIfElse]="loading">
+        <div class="image greybg">
+            <img [src]="dbProduct.sys.img.url" alt="">
         </div>
-        <div class="details whitebg micropadding">
-            <p></p>
+        <div class="etc greybg">
+            <div class="name whitebg micropadding">
+                <p>{{dbProduct.sys.name}}</p>
+            </div>
+            <div class="details whitebg micropadding">
+                <p></p>
+            </div>
+            <div class="purchase whitebg micropadding">
+                <p></p>
+            </div>
         </div>
-        <div class="purchase whitebg micropadding">
-            <p></p>
+    </ng-template>
+    <ng-template #loading>
+        <div class="loading">
+            <p>Loading...</p>
         </div>
-    </div>
+    </ng-template>
 </div>

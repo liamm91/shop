@@ -41,7 +41,7 @@ export class ProductviewpageComponent implements OnInit {
          * is too much work, its just better to assign the first entry in the list of data
          */
         this.dbProduct = data[0];
-        console.log(data);
+        console.log(this.dbProduct);
       }, // success path
       error => this.error = error // error path
     );
