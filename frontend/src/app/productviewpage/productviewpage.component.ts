@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class ProductviewpageComponent implements OnInit {
   // added variables to hold stuff
   error: any;
-  dbProduct: productItem[];
+  dbProduct: productItem;
+  id: string;
 
   constructor(private productService: ProductboxService, private router: Router) { }
 
@@ -26,17 +27,23 @@ export class ProductviewpageComponent implements OnInit {
   ngOnInit(): void {
     // get the _id from the url
     // using router to grab the current url and formatting it in one line
-    let href = this.router.url.split('/')[2];
+    this.id = this.router.url.split('/')[2];
 
     // gets json from our express website through productbox.service
-    // this.productService.getProduct(this.catagory)
-    // .subscribe(
-    //   (data: productItem[]) => {
-    //     data.map(item => item.sys.img.url = 'data:image/png;base64,' + this.toBase64(item.sys.img.data.data)); // converting the buffer array to a b64 string which can be made into a URL
-    //     this.dbProduct = data; // assigning processed data into dbProduct
-    //     console.log(data);
-    //   }, // success path
-    //   error => this.error = error // error path
-    // );
+    this.productService.getProduct(`id/${this.id}`)
+    .subscribe(
+      (data: productItem[]) => {
+        // converting the buffer array to a b64 string which can be made into a URL
+        data.map(item => item.sys.img.url = 'data:image/png;base64,' + this.toBase64(item.sys.img.data.data));
+
+        /**
+         * assigning processed data into dbProduct, to convert the code into returning a singular object
+         * is too much work, its just better to assign the first entry in the list of data
+         */
+        this.dbProduct = data[0];
+        console.log(data);
+      }, // success path
+      error => this.error = error // error path
+    );
   }
 }
