@@ -1,0 +1,49 @@
+*{
+    --innerbox-padding: 1rem;
+    --microbox-padding: 0.4rem;
+}
+
+.content-container{
+    /* margin: 0 5rem 0 5rem; */
+    padding: 1.5rem;
+    /* width: calc(100vw - var(--margins)); */
+    width: 100vw;
+}
+
+.image{
+    height: 30rem;
+    width: calc(65% - var(--innerbox-padding));
+    float: left;
+}
+
+.name{
+    height: calc(20% - var(--microbox-padding));
+}
+
+.details{
+    height: calc(50% - var(--microbox-padding));
+}
+
+.purchase{
+    height: calc(30% - var(--microbox-padding)*2);
+}
+
+.etc{
+    height: 30rem;
+    width: calc(35% - var(--innerbox-padding));
+    float: right;
+}
+
+.greybg{
+    background-color: #dddddd;
+        border-radius: 0.3rem;
+}
+
+.whitebg{
+    background-color: white;
+    border-radius: 0.3rem;
+}
+
+.micropadding{
+    margin: var(--microbox-padding);
+}
