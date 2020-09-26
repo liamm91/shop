@@ -4,6 +4,7 @@ import { LINKS } from './navbar/navbar.links';
 import { HomeComponent } from './home/home.component';
 import { ContactpageComponent } from './contactpage/contactpage.component';
 import { ProductviewpageComponent } from './productviewpage/productviewpage.component';
+import { BodyComponent } from './body/body.component';
 
 // redirects users to proper website
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
 
 // pushing routes to other components to the main router module
 // format: {path: '', component: componentName}
-LINKS.forEach(obj => routes.push({path: `${obj.routerLink}`, component: obj.component}));
+LINKS.forEach(obj => routes.push({path: `${obj.routerLink}`, component: BodyComponent}));
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

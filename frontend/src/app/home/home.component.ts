@@ -13,7 +13,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     /**
      * having 'all' as the catagory is temporary until I figure
-     * out what exactly to put here
+     * out what exactly to put here.
+     * I'm keeping the home component just incase I want to
+     * do something unique with the first page, which doesn't apply
+     * to the generic body component template
      */
     this.catagory = "all"; // property binding
   }
