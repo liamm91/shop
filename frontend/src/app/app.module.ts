@@ -19,6 +19,7 @@ import { PromotionalbarComponent } from './promotionalbar/promotionalbar.compone
 import { ContactpageComponent } from './contactpage/contactpage.component';
 import { UserbarComponent } from './userbar/userbar.component';
 import { ProductviewpageComponent } from './productviewpage/productviewpage.component';
+import { BodyComponent } from './body/body.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ProductviewpageComponent } from './productviewpage/productviewpage.comp
     ContactpageComponent,
     UserbarComponent,
     ProductviewpageComponent,
+    BodyComponent,
   ],
   imports: [
     BrowserModule,
